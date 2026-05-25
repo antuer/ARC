@@ -1,5 +1,4 @@
-# ARC: Audit-Guided Risk Calibration for Black-Box Multimodal Jailbreak Attacks
-
+# ARC: An Audit-Guided Risk Calibration Attack for Jailbreaking Multimodal Large Language Models
 ## Overview
 
 This repository provides a partial implementation of **ARC**, an audit-guided risk calibration framework for studying black-box multimodal jailbreak attacks against multimodal large language models (MLLMs).
