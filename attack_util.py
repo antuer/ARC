@@ -68,7 +68,7 @@ def load_target_model(target_model_name, gpu_id):
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4", 
             bnb_4bit_use_double_quant=True,
-            bnb_4bit_compute_dtype=torch.bfloat16 # 计算依然保持高精度
+            bnb_4bit_compute_dtype=torch.bfloat16 
         )
         processor = AutoProcessor.from_pretrained(model_path, use_fast=True, trust_remote_code=True)
         model = Glm4vForConditionalGeneration.from_pretrained(
@@ -183,7 +183,7 @@ def get_model_response(target_model_name, model, processor, image, text, index, 
             {
                 "role": "user",
                 "content": [
-                    {"type": "image", "image": image}, # 支持传入 PIL Image
+                    {"type": "image", "image": image}, 
                     {"type": "text", "text": text}
                 ]
             }
@@ -216,7 +216,7 @@ def get_model_response(target_model_name, model, processor, image, text, index, 
         return output_text.strip()
     
     elif 'internvl' in target_model_name.lower():
-        tokenizer = processor # 我们在上一步把 tokenizer 当作 processor 返回了
+        tokenizer = processor
     
         messages = [
             {
