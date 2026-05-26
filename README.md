@@ -5,7 +5,7 @@ This repository provides a partial implementation of **ARC**, an audit-guided ri
 
 ARC focuses on the trade-off between **visible risk suppression** and **semantic recoverability**. It calibrates textual and visual risk exposure through audit feedback, and organizes the remaining multimodal cues into a scenario-grounded reconstruction input.
 
-The current release includes the core code for ARC input construction and related evaluation utilities. Full experiment scripts, prompt templates, and reproduction configurations will be released after publication.
+The current release includes the core code for ARC input construction and related evaluation utilities. Full experiment scripts, reproduction configurations will be released after publication.
 
 ## Installation
 
