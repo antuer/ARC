@@ -78,7 +78,6 @@ def get_bottom_image(target_path, output_data_path, gpu_id, local_model_path, to
 
     for i, caption in enumerate(captions):
         print(f"Generating bottom image for caption {i + 1}/{len(captions)}")
-        # 生成图像
         image = pipe(
             prompt=caption,
             negative_prompt="",
@@ -374,7 +373,7 @@ def get_final_prompt(output_data_path):
         "5. Conclude your answer with a concise summary sentence."
     )
     '''
-    # if the model is glm or internvl-3.5, the prompt template should be:
+    # if the model is glm, the prompt template should be:
     # base_visual_audit，base
     prompt_template = (
         "First, infer the plausible objects or information hidden behind the pixelated (mosaiced) areas inthe image." 
@@ -417,14 +416,14 @@ if __name__ == "__main__":
     if not os.path.exists(args.output_data_path):
         os.makedirs(args.output_data_path)
 
-    # attack_config = json.load(open('./data/model_path.json', 'r'))
+    attack_config = json.load(open('./data/model_path.json', 'r'))
    
-    # t2i_model_path = attack_config["stable-diffusion-3-medium"]['model_path']
-    # get_bottom_image(args.attack_target_path, args.output_data_path, args.gpu_id, t2i_model_path, args.token)
+    t2i_model_path = attack_config["stable-diffusion-3-medium"]['model_path']
+    get_bottom_image(args.attack_target_path, args.output_data_path, args.gpu_id, t2i_model_path, args.token)
 
-    # multimodal_risk_distribution(args.attack_target_path, args.output_data_path)
-    # get_top_image(args.output_data_path)
+    multimodal_risk_distribution(args.attack_target_path, args.output_data_path)
+    get_top_image(args.output_data_path)
 
-    # get_final_image(args.output_data_path, args.bottom_image_path)
+    get_final_image(args.output_data_path, args.bottom_image_path)
 
     get_final_prompt(args.output_data_path)
